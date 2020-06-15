@@ -1,0 +1,103 @@
+<mat-toolbar color="primary">
+  <span class="gap"></span> 
+   <span>Daily Activities</span>
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="picker">
+      <th mat-header-cell *matHeaderCellDef> picker </th>
+      <td mat-cell *matCellDef="let element"> {{element.picker | date : 'longDate'}} </td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="teaMaking">
+    <th mat-header-cell *matHeaderCellDef> Tea Making </th>
+    <!-- <td mat-cell *matCellDef="let element"> {{element.teaMaking}} </td> -->
+
+    <td mat-cell *matCellDef="let element">
+        <mat-checkbox  [checked]="element.teaMaking">
+        </mat-checkbox>
+      </td>
+  </ng-container>
+
+  <!-- Yoga column -->
+  <ng-container matColumnDef="yoga">
+      <th mat-header-cell *matHeaderCellDef> yoga </th>
+      <td mat-cell *matCellDef="let element">
+      <mat-checkbox  [checked]="element.yoga">
+        </mat-checkbox>
+
+      </td>
+  </ng-container>
+
+  <ng-container matColumnDef="washingUtensils">
+        <th mat-header-cell *matHeaderCellDef> Washing Utensils </th>
+        <td mat-cell *matCellDef="let element">
+        <mat-checkbox  [checked]="element.washingUtensils">
+          </mat-checkbox>
+        </td>
+  </ng-container>
+
+  <ng-container matColumnDef="studyAngular">
+        <th mat-header-cell *matHeaderCellDef> Study Angular </th>
+        <td mat-cell *matCellDef="let element">
+        <mat-checkbox  [checked]="element.studyAngular">
+          </mat-checkbox>
+        </td>
+  </ng-container>
+
+  <ng-container matColumnDef="drinkHerbalShake">
+      <th mat-header-cell *matHeaderCellDef> Drink Herbal Shake </th>
+      <td mat-cell *matCellDef="let element">
+      <mat-checkbox  [checked]="element.drinkHerbalShake">
+        </mat-checkbox>
+      </td>
+</ng-container>
+
+<ng-container matColumnDef="drinkWarmWater">
+    <th mat-header-cell *matHeaderCellDef> Drink Warm Water </th>
+    <td mat-cell *matCellDef="let element">
+    <mat-checkbox  [checked]="element.drinkWarmWater">
+      </mat-checkbox>
+    </td>
+</ng-container>
+
+<ng-container matColumnDef="exercise">
+    <th mat-header-cell *matHeaderCellDef> Exercise </th>
+    <td mat-cell *matCellDef="let element">
+    <mat-checkbox  [checked]="element.exercise">
+      </mat-checkbox></td>
+
+</ng-container>
+
+<ng-container matColumnDef="drinkMorningJuice">
+    <th mat-header-cell *matHeaderCellDef> Drink Morning Juice </th>
+    <td mat-cell *matCellDef="let element">
+    <mat-checkbox  [checked]="element.drinkMorningJuice">
+      </mat-checkbox>
+    </td>
+</ng-container>
+
+<ng-container matColumnDef="hairOil">
+    <th mat-header-cell *matHeaderCellDef> HairOil </th>
+    <td mat-cell *matCellDef="let element">
+    <mat-checkbox  [checked]="element.hairOil">
+      </mat-checkbox>
+    </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+</table>
+<button class="btn btn-primary" (click)="savedata(dataSource)">Save Data</button>
+<button class="btn btn-primary" (click)="addRow()">Add Data</button>

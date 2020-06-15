@@ -1,0 +1,14 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+table {
+    width: 100%;
+  }
+.gap{
+ width: 45%;   
+}
+th{
+   font-weight: bold;
+}
+.mat-checkbox .mat-checkbox-frame {
+    border-color: blue;
+    background-color: #dddddd
+}
