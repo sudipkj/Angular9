@@ -7,6 +7,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatToolbarModule ,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule
     
   ],
   providers: [],

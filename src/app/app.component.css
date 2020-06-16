@@ -1,4 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 table {
     width: 100%;
   }
@@ -11,4 +12,39 @@ th{
 .mat-checkbox .mat-checkbox-frame {
     border-color: blue;
     background-color: #dddddd
+}
+section {
+  display: table;
+  margin: 8px;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+}
+
+.example-button-row button {
+  display: table-cell;
+  margin-right: 8px;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
+}
+
+.example-button-container {
+  display: flex;
+  width: 120px;
+}
+button:focus, button:active:focus, button.active:focus {
+outline: none !important;
+outline-style: none !important;
 }

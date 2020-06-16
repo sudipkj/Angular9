@@ -3,7 +3,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 
 import {MatTableDataSource} from '@angular/material/table';
 
-export class PeriodicElement {
+export class Elements {
   position : number;
   picker : Date;
   teaMaking : boolean;
@@ -17,7 +17,7 @@ export class PeriodicElement {
   hairOil : boolean;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: Elements[] = [
  
 ];
 
@@ -34,8 +34,8 @@ export class AppComponent {
 
   displayedColumns: string[] = ['position', 'picker','teaMaking', 'yoga', 'washingUtensils', 'studyAngular',
    'drinkHerbalShake', 'drinkWarmWater', 'drinkMorningJuice', 'hairOil'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  dataSource = new MatTableDataSource<Elements>(ELEMENT_DATA);
+  selection = new SelectionModel<Elements>(true, []);
   activityDate = new Date();
 
   /** Whether the number of selected elements matches the total number of rows. */
@@ -47,7 +47,7 @@ export class AppComponent {
 
 
    /** The label for the checkbox on the passed row */
-   checkboxLabel(row?: PeriodicElement): string {
+   checkboxLabel(row?: Elements): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
@@ -59,7 +59,7 @@ export class AppComponent {
   //       this.dataSource.data.forEach(row => this.selection.select(row));
   // }
 
-  savedata(dataSource : MatTableDataSource<PeriodicElement> ) {
+  savedata(dataSource : MatTableDataSource<Elements> ) {
     console.log(dataSource);
   }
 
@@ -68,10 +68,6 @@ export class AppComponent {
     this.dataSource.data.push({position : this.dataSource.data.length + 1, picker : new Date(),teaMaking: false, yoga : false, washingUtensils : false, studyAngular: false, 
       drinkHerbalShake : false, drinkWarmWater : false, exercise : false, drinkMorningJuice : false, hairOil : false}
       );
-    console.log("latest value of datasource is : "+this.dataSource.data);
-    this.dataSource.data.length + 1
     return this.dataSource.filter = "";
   }
-
- 
 }

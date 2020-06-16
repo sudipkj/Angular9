@@ -1,9 +1,26 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar color="primary">
   <span class="gap"></span> 
    <span>Daily Activities</span>
   <span class="example-fill-remaining-space"></span>
 </mat-toolbar>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-fab color="primary" (click)="addRow()">
+          <mat-icon>note_add</mat-icon>
+        </button>
+        <button mat-fab color="primary" (click)="savedata(dataSource)">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+
+<table mat-table [dataSource]="dataSource" #mytable  class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -99,5 +116,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
 </table>
-<button class="btn btn-primary" (click)="savedata(dataSource)">Save Data</button>
-<button class="btn btn-primary" (click)="addRow()">Add Data</button>
+
