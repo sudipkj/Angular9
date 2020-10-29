@@ -1,0 +1,49 @@
+<div style="width: 33%; float:left">
+    <p>Now its time to learn data binding using interpolation</p>
+
+    <h4>{{heading}}</h4>
+
+    <p>The below span tag is used for grouping and style purpose for inline elements</p>
+    <p>example of data biding using property binding</p>
+    <span [innerHTML]='message'></span>
+</div>
+<div style="width: 33%; float:left">
+    <img [src]="'assets/PoojaEdited.jpg'" alt="" [height]=150>
+
+    <br>
+    <br>
+    <p>Lets learn <b>[(ngModel)]</b></p>
+    Enter text here : <input [(ngModel)]='twoWayBidningData' />
+    {{twoWayBidningData}}
+
+    <p>Using Routers with HTML</p>
+    <a [routerLink]="['/employee']">Go to Employee</a>
+    <br>
+
+    <button (click)="goToEmployee('emp')">Go To Employee Programitically </button><br>
+    <button (click)="goToEmployee('stu')">Go To Student Programitically </button>
+
+
+</div>
+
+<div style="width: 33%; float:left">
+    <p>Implementing angular pipes for transforming data before displaying</p>
+    <p>There are 2 types of Pipes : Built In pipes and Custom Pipes</p>
+    <p>Built in pipes are further classified as parameterized and non parametereized</p>
+    <p>Pipe chaining</p>
+
+    <table border='2'>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee DOB</th>
+        </tr>
+        <tr *ngFor="let emp of employeeDetails">
+            <td>{{ emp.empId}}</td>
+            <td>{{ emp.empName | uppercase | empPipe : emp.gender}}</td>
+            <td>{{ emp.empsalary | currency : 'INR'}}</td>
+            <td>{{ emp.empDOB}}</td>
+        </tr>
+    </table>
+</div>

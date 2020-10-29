@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+P {
+    color : blue;
+    font-weight: bold;
+}
+.One{
+    color :seagreen;
+}
+
+.Two{
+    font-size: 15px;
+}
+.Three{
+   background-color :  blue;
+}
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+.filler {
+    flex: 1 1 auto;
+ }
+ .gap {
+    margin-right : 40%;
+ }
+ .app-toolbar {
+    position: sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+};
+body {
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+  }
+  .basic-container {
+    padding: 30px;
+  }
+  .version-info {
+    font-size: 8pt;
+    float: right;
+    margin: 8px;
+  }
+  /* example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  } */

@@ -1,0 +1,16 @@
+<mat-toolbar class="app-toolbar">
+  <span class="gap"></span>
+  <span>
+    <h1><b>Welcome to Angular 9 practice</b></h1>
+  </span>
+  <span class="filler"></span>
+  <span>About</span>
+</mat-toolbar>
+<button (click)="goToportal('showportal1')">Portal 1</button>
+<button (click)="goToportal('showportal2')">Portal 2</button>
+<button (click)="goToportal('showportal3')">Portal 3</button>
+<button (click)="goToportal('matdesign')">Material Design</button>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
