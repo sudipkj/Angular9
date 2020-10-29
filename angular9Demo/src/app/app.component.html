@@ -1,0 +1,250 @@
+<mat-toolbar class="app-toolbar">
+    <span class = "gap"></span>
+    <span><h1><b>Welcome to Angular 9 practice</b></h1> </span>
+    <span class = "filler"></span>
+    <span>About</span>
+ </mat-toolbar>
+<button (click) = "goToportal('showportal1')">Portal 1</button>
+<button (click) = "goToportal('showportal2')">Portal 2</button>
+<button (click) = "goToportal('showportal3')">Portal 3</button>
+
+<div *ngIf="portal1">
+<div style="width: 33%; float:left">
+<div>
+  <p>When clicked it calls a function and opens alert</p>
+  <button (click) = buttonClicked()>Click Me</button>
+</div>
+<p>Below is for testing *ngIf directive</p>
+
+<input type="radio" name="rad1" (click)= toggleDivFirst()> First
+<input type="radio" name="rad1" (click)= toggleDivSecond()> Second
+<div *ngIf="toggleFirst" [ngStyle]="{'color': 'purple'}">
+  This is shown when first button is clicked using ngIf
+</div>
+<div *ngIf="toggleSecond" [ngStyle] = "{'color' : 'red'}">
+  This is shown when second button is clicked using ngIf
+</div>
+
+<div [ngStyle]="{'color' : 'blue'}">
+  <p>Practice for <b>ngIf [condition] then thenblock else elseBlock</b> starts here</p>
+</div>
+
+<input type="radio" name="r1" (click)=showIndiaAddress()> Show India Address
+<input type="radio" name="r1" (click)=showRiyadhAddress()> Show KSA Address
+<br>
+<div *ngIf=" showAdd; then homeAdd; else riyadhAdd"></div>
+
+<div> 
+<ng-template #homeAdd>
+    Mahda Colony, Viman Nagar
+  </ng-template>
+  <ng-template #riyadhAdd>
+    Al Malaz, riyadh
+  </ng-template>
+
+</div>
+
+<div>
+  <p> Now its time to learn <b>ngSwitch ngSwitchCase and ngSwitchDefault</b></p>
+
+  <div>
+  <h4>Select the team to see its captain name</h4>
+  <select (change)="setTeam($event)">
+    <option value="">--SELECT--</option>
+    <option value="1">India</option>
+    <option value="2">Australia</option>
+    <option value="3">Pakistan</option>
+    <option value="4">Sri Lanka</option>
+  </select>
+  <div [ngSwitch]=choosenVal>
+    <h3 *ngSwitchCase="'1'">Indian Captain name is Sourav ganguly</h3>
+    <h3 *ngSwitchCase="'2'">Australian Captain name is Sourav ganguly</h3>
+    <h3 *ngSwitchCase="'3'">pakistan Captain name is Ricky Pointing</h3>
+    <h3 *ngSwitchCase="'4'">Sri lankan Captain name is D Silva</h3>
+    <h3 *ngSwitchDefault>You are the captain for your team</h3>
+  </div>
+</div>
+
+</div>
+</div>
+<div style="width: 33%; float:left">
+<div>
+  <p>Now its time to check *ngFor (index, first, last, even, odd) directive</p>
+  <ul>
+    <li *ngFor="let s of students; let i = index; let f = first; let l = last; let e=even; let o=odd">
+      -- {{i+1}} -- Name of student is <b>{{s.name}} </b> Address : <b>{{s.address}}</b>. --  Is first element : {{f}}
+    </li>
+  </ul>
+</div>
+<div>
+  <p>Lets learn how to optimise the ngFor loop for larger data by using trackBy</p>
+  <table border="2">
+
+      <tr>
+          <th colspan="1">Serial No.</th>
+          <th colspan="1">Student Id</th>
+          <th colspan="1">Student Name</th>
+          <th colspan="1">Student Address</th>
+      </tr>
+    <tr *ngFor="let s of students; let i = index; let e = even; trackBy : trackByStudentsId" [ngStyle]="{'background-color': e? 'pink':'	rgb(255,255,153)'}">
+      <td>{{i+1}}</td>
+      <td>{{s.id}}</td>
+      <td>{{s.name}}</td>
+      <td>{{s.address}}</td>
+    </tr>
+  </table>
+  <br>
+  <button (click) = getMoreStudents()>Get More Students</button>
+</div>
+</div>
+<div style="width: 33%; float:left">
+    <p>Now lets learn Grouping Concept in angular for grouping of data using *ngFor inside *ngFor</p> 
+
+    <ul *ngFor="let group of data">
+      <li> {{group.country}}</li>
+      <ul *ngFor="let people of group.listOfPpl;let i = index; let ev = even; let od = odd">
+          <li [ngStyle]="{'color': ev?'blue': 'orange'}"> {{people.id}}</li>
+          <ul>
+            <li>{{people.name}}</li>
+          </ul>
+      </ul>
+      
+    </ul>
+
+    <div>
+        <p [ngClass]= "'One Two'"> Using ngClass as a <b>string</b> </p>
+        <p [ngClass]= "['One', 'Two']"> Using ngClass as a <b>array</b> </p>
+        <p [ngClass]= "{'One' : true,'Two' : true}"> Using ngClass as a <b>object</b> </p>
+        <p [ngClass]= "getCSSClass('mode')"> Using ngClass as a <b>method</b> </p>
+        
+     </div>
+     
+</div>
+</div>
+<div *ngIf="portal2">
+  <div style="width: 33%; float:left">
+    <p>Now its time to learn data binding using interpolation</p>
+
+    <h4>{{heading}}</h4>
+
+    <p>The below span tag is used for grouping and style purpose for inline elements</p>
+    <p>example of data biding using property binding</p>
+    <span [innerHTML]='message'></span>
+  </div>
+  <div style="width: 33%; float:left">
+    <img [src]="'assets/PoojaEdited.jpg'" alt="" [height]=150>
+    
+    <br>
+    <br>
+    <p>Lets learn <b>[(ngModel)]</b></p>
+    Enter text here : <input [(ngModel)]= 'twoWayBidningData'/>
+    {{twoWayBidningData}}
+
+    <p>Using Routers with HTML</p>
+    <a [routerLink]= "['/employee']">Go to Employee</a>
+    <br>
+    
+    <button (click)="goToEmployee('emp')" >Go To Employee Programitically </button><br>
+    <button (click)="goToEmployee('stu')">Go To Student Programitically </button>
+
+    <div>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+  <div  style="width: 33%; float:left">
+    <p>Implementing angular pipes for transforming data before displaying</p>
+    <p>There are 2 types of Pipes : Built In pipes and Custom Pipes</p>
+    <p>Built in pipes are further classified as parameterized and non parametereized</p>
+    <p>Pipe chaining</p>
+
+    <table border='2'>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee DOB</th>
+      </tr>
+      <tr *ngFor= "let emp of employeeDetails">
+        <td>{{ emp.empId}}</td>
+        <td>{{ emp.empName | uppercase | empPipe : emp.gender}}</td>
+        <td>{{ emp.empsalary | currency : 'INR'}}</td>
+        <td>{{ emp.empDOB}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="portal3">
+  <p>NgForm and NgModel Practice for Template driven Forms</p>
+  <button (click)="goToForms('template')">Template Driven From</button>
+  <button (click)="goToForms('reactive')">Reactive Form</button>
+  <button (click)="goToForms('formArray')">Form Array</button>
+  <div class="container" *ngIf="template">
+    <div class="row">
+      <div class="form_bg">
+      <form #regForm='ngForm' (ngSubmit)="register(regForm)">
+        <h2 class="text-center">Register Portal</h2>
+        <br>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="First Name" name="fName" required ngModel>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Second Name" name="sName" required  ngModel>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Phone" name="phone" required  ngModel>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Email Id" name="email" email required  ngModel #email="ngModel">
+          <span class="help-bpx" *ngIf="email.touched && !email.valid">Please enter correct Email Id</span>
+        </div>
+        <br>
+        <button class="btn btn-primary" id="register" [disabled]="!regForm.valid">Submit</button>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="reactive">
+    <div class="row">
+
+      <div class="form_bg">
+        <form [formGroup] = 'signUpForm' (ngSubmit)="postData(signUpForm)">
+          <h2>Reactive Forms</h2>
+          <div class="form-group">
+            <input type="text" placeholder="First Name" formControlName='rFirstName'>
+            <span *ngIf="signUpForm.controls.rFirstName.touched && signUpForm.controls.rFirstName.value ==''"> First Name is Empty</span>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Second name" formControlName='rSecondName'>
+            <span *ngIf="signUpForm.controls.rSecondName.touched && signUpForm.controls.rSecondName.hasError('required')">Plese enter second name</span>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Id" formControlName='rEmailId'>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="password" formControlName='rPassword'>
+          </div>
+          <br>
+          <input type="submit" value="Sign Up" [disabled]="!signUpForm.valid">
+          <button type="reset">Reset Form</button>
+        </form>
+      </div>
+  </div>
+  </div>
+  <div class="container" *ngIf="formArray">
+    
+    <form [formGroup] = "form" (ngSubmit)= "printContacts()">
+      <div formArrayName = "contactDetails">
+        <div *ngFor="let contact of form.controls.contactDetails.controls, let i = index" >
+            <div class="form-group">
+          <input [formControlName] = "i" placeholder="Enter Contact Number">
+            </div>
+        </div>
+
+      </div>
+    </form>
+    <button (click)= "addContact()">Add Contact Control</button>
+  </div>
+</div>

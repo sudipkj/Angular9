@@ -1,0 +1,31 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+P {
+    color : blue;
+    font-weight: bold;
+}
+.One{
+    color :seagreen;
+}
+
+.Two{
+    font-size: 15px;
+}
+.Three{
+   background-color :  blue;
+}
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+.filler {
+    flex: 1 1 auto;
+ }
+ .gap {
+    margin-right : 40%;
+ }
+ .app-toolbar {
+    position: sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+};
+
